@@ -14,11 +14,14 @@
     "url": "https://github.com/iuraizee/iuraizee.git"
   },
   "scripts": {
+    "download": "node utils/fetch.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "archieml": "^0.5.0",
+    "axios": "^1.8.1",
     "next": "^14.2.24",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
