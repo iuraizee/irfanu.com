@@ -3,8 +3,8 @@ html {
 }
 
 body {
-  font-family: var(--font-family--base);
-  line-height: var(--line-height--base);
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-base);
 }
 
 h1,
@@ -14,11 +14,11 @@ h3 {
 }
 
 h2 {
-  font-size: var(--font-size--base);
+  font-size: var(--font-size-base);
 }
 
 time {
-  font-size: var(--font-size--small);
+  font-size: var(--font-size-small);
 }
 
 @mixin relative-clamp-sizes($min, $val, $max, $ratio) {
@@ -35,16 +35,16 @@ time {
 
 header > p {
   @include relative-clamp-sizes(
-    var(--font-size--medium),
+    var(--font-size-medium),
     4vw,
-    var(--font-size--large),
+    var(--font-size-large),
     8
   );
-  font-family: var(--font-family--base);
-  color: var(--color--primary);
-  line-height: var(--line-height--tight);
+  font-family: var(--font-family-base);
+  color: var(--color-primary);
+  line-height: var(--line-height-tight);
 
   strong {
-    color: var(--color--accent);
+    color: var(--color-accent);
   }
 }
