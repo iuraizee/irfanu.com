@@ -1,0 +1,13 @@
+@mixin container {
+  display: grid;
+  grid-template-columns: minmax(auto, var(--container--base));
+  justify-content: center;
+  padding: var(--space--medium);
+  margin: 0 auto;
+}
+
+main {
+  @include container;
+
+  grid-row-gap: var(--space--x-large);
+}

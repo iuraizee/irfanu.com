@@ -1,0 +1,15 @@
+body {
+  background-color: var(--color--background);
+  color: var(--color--primary);
+}
+
+a {
+  color: var(--color--primary);
+  text-decoration-color: var(--color--accent);
+  text-decoration-thickness: var(--border-thickness--thick);
+  transition: var(--transition-timing--base) text-decoration-color ease-in-out;
+
+  &:hover {
+    text-decoration-color: var(--color--primary);
+  }
+}
