@@ -13,7 +13,7 @@ const fetchData = async () => {
 
     // define file path on data folder
     const dirPath = path.join(__dirname, '..', 'data')
-    const filePath = path.join(dirPath, 'document.json')
+    const filePath = path.join(dirPath, 'data.json')
 
     // check for existing data directory
     if (!fs.existsSync(dirPath)) {
