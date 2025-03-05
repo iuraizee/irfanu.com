@@ -41,5 +41,6 @@ next-env.d.ts
 # vscode
 .vscode
 
-# data file
+# data files
 data.json
+projects.json

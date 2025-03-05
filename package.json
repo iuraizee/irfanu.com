@@ -14,7 +14,7 @@
     "url": "https://github.com/iuraizee/iuraizee.git"
   },
   "scripts": {
-    "download": "node utils/fetch.js",
+    "download": "node utils/fetchData.js",
     "dev": "npm run download && next dev",
     "build": "next build",
     "start": "next start"
