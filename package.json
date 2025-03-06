@@ -1,5 +1,5 @@
 {
-  "name": "irfan",
+  "name": "iuraizee",
   "description": "Portfolio site",
   "version": "0.1.0",
   "private": true,
@@ -22,6 +22,8 @@
   "dependencies": {
     "archieml": "^0.5.0",
     "axios": "^1.8.1",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.24",
     "modern-normalize": "^3.0.1",
     "next": "^14.2.24",
     "react": "^18.3.1",
