@@ -16,7 +16,7 @@
   "scripts": {
     "download": "node utils/fetchData.js",
     "dev": "npm run download && next dev",
-    "build": "next build",
+    "build": "npm run download && next build",
     "start": "npx serve@latest out"
   },
   "dependencies": {
