@@ -1,6 +1,7 @@
 import data from '../data/data.json'
 import projects from '../data/projects.json'
-import Card from '../components/card.js'
+import Card from '../components/Card.js'
+import SocialLinks from '../components/SocialLinks.js'
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
               <p key={i} dangerouslySetInnerHTML={{ __html: element.value }} />
             )
           })}
+          <SocialLinks /> 
         </header>
 
         <section>
