@@ -17,7 +17,7 @@
     "download": "node utils/fetchData.js",
     "dev": "npm run download && next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "npx serve@latest out"
   },
   "dependencies": {
     "archieml": "^0.5.0",
