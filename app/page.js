@@ -1,4 +1,6 @@
 import data from '../data/data.json'
+import projects from '../data/projects.json'
+import Card from '../components/card.js'
 
 export default function Home() {
   return (
@@ -18,6 +20,23 @@ export default function Home() {
             )
           })}
         </header>
+
+        <section>
+          <h2>Selected projects</h2>
+
+          <div className="card-grid">
+            {projects.map((el, i) => {
+              return (
+                <Card
+                  key={i}
+                  url={el.url}
+                  headline={el.headline}
+                  image={el.image}
+                />
+              )
+            })}
+          </div>
+        </section>
       </main>
     </div>
   )
