@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main>
       <header>
-        <h1 style={{ display: 'none' }}>Irfan Uraizee</h1>
+        <h1 className="visually-hidden">Irfan Uraizee</h1>
 
         {data.intro.map((element, i) => {
           return (
