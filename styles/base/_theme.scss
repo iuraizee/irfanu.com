@@ -9,6 +9,10 @@ a {
   text-decoration-thickness: var(--border-thickness-thick);
   transition: var(--transition-timing-base) text-decoration-color ease-in-out;
 
+  p {
+    text-decoration-thickness: var(--border-thickness-thick);
+  }
+
   &:hover {
     text-decoration-color: var(--color-primary);
   }
