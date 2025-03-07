@@ -1,7 +1,7 @@
 const SocialLinks = () => {
   const links = [
     {
-      href: 'mailto:iuraizee@gmail.com?subject=Hi Irfan! Here for The Bear S1E7 spoiler chat',
+      href: 'mailto:iuraizee@gmail.com?subject=Hi Irfan!',
       title: 'Email',
     },
     { href: 'https://github.com/iuraizee', title: 'Github' },
