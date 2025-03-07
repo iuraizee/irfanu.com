@@ -18,7 +18,7 @@ export default function Home() {
       </header>
 
       <section>
-        <h2>Selected projects</h2>
+        <h2>Selected works</h2>
 
         <div className="card-grid">
           {projects.map((el, i) => {

@@ -36,3 +36,20 @@
     transition: all var(--transition-timing-base);
   }
 }
+
+.spinner {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  color: var(--color-primary);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
