@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import axios from 'axios'
 import archieml from 'archieml'
+import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
 
@@ -26,21 +27,21 @@ const fetchGoogleDoc = async () => {
   const filePath = path.join(DATA_DIR, 'data.json')
 
   try {
-    console.log('Fetching doc...')
+    console.log(chalk.cyan('Fetching doc...'))
     const response = await axios.get(url, { responseType: 'text' })
-
-    console.log('Doc fetched! Parsing...')
     const parsedData = archieml.load(response.data)
 
     fs.writeFileSync(filePath, JSON.stringify(parsedData, null, 2))
-    console.log(`Doc data saved to ${filePath}`)
+    console.log(chalk.green(`Doc data saved to ${filePath}`))
   } catch (error) {
     console.log(
-      'Error fetching doc:',
-      error.response?.status,
-      error.response?.statusText
+      chalk.red(
+        'Error fetching doc:',
+        error.response?.status,
+        error.response?.statusText
+      )
     )
-    console.error('Full error:', error)
+    console.error(chalk.red('Full error:', error))
   }
 }
 
@@ -50,7 +51,7 @@ const fetchGoogleSheet = async () => {
   const filePath = path.join(DATA_DIR, 'projects.json')
 
   try {
-    console.log('Fetching sheet...')
+    console.log(chalk.cyan('Fetching sheet...'))
     const response = await axios.get(url, { responseType: 'text' })
 
     // extract json
@@ -79,14 +80,16 @@ const fetchGoogleSheet = async () => {
     })
 
     fs.writeFileSync(filePath, JSON.stringify(rows, null, 2))
-    console.log(`Sheet data saved to ${filePath}`)
+    console.log(chalk.green(`Sheet data saved to ${filePath}`))
   } catch (error) {
     console.log(
-      'Error fetching sheet:',
-      error.response?.status,
-      error.response?.statusText
+      chalk.red(
+        'Error fetching sheet:',
+        error.response?.status,
+        error.response?.statusText
+      )
     )
-    console.error('Full error:', error)
+    console.error(chalk.red('Full error:', error))
   }
 }
 
