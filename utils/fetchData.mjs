@@ -1,7 +1,9 @@
-const fs = require('fs')
-const path = require('path')
-const axios = require('axios')
-const archieml = require('archieml')
+import fs from 'fs'
+import path from 'path'
+import axios from 'axios'
+import archieml from 'archieml'
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
 
 // google doc ids
 const GOOGLE_DOC_ID = '1EaoXpjWxg-88aYZG2AEmxujMvRB4LSEzu8DfywSluUs'
@@ -9,6 +11,8 @@ const GOOGLE_SHEET_ID = '1MB648AantfCtQxGzbQlSy3ztp-uQXbciqOIiBvUHimk'
 const SHEET_NAME = 'main'
 
 // output json files directory
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 const DATA_DIR = path.join(__dirname, '..', 'data')
 
 // check for data directory
@@ -22,21 +26,21 @@ const fetchGoogleDoc = async () => {
   const filePath = path.join(DATA_DIR, 'data.json')
 
   try {
-    console.log('🔄 Fetching Google Doc...')
+    console.log('Fetching doc...')
     const response = await axios.get(url, { responseType: 'text' })
 
-    console.log('✅ Google Doc fetched! Parsing...')
+    console.log('Doc fetched! Parsing...')
     const parsedData = archieml.load(response.data)
 
     fs.writeFileSync(filePath, JSON.stringify(parsedData, null, 2))
-    console.log(`✅ Google Doc data saved to ${filePath}`)
+    console.log(`Doc data saved to ${filePath}`)
   } catch (error) {
-    console.error(
-      '❌ Error fetching Google Doc:',
+    console.log(
+      'Error fetching doc:',
       error.response?.status,
       error.response?.statusText
     )
-    console.error('🔍 Full error:', error)
+    console.error('Full error:', error)
   }
 }
 
@@ -46,7 +50,7 @@ const fetchGoogleSheet = async () => {
   const filePath = path.join(DATA_DIR, 'projects.json')
 
   try {
-    console.log('🔄 Fetching Google Spreadsheet...')
+    console.log('Fetching sheet...')
     const response = await axios.get(url, { responseType: 'text' })
 
     // extract json
@@ -75,14 +79,14 @@ const fetchGoogleSheet = async () => {
     })
 
     fs.writeFileSync(filePath, JSON.stringify(rows, null, 2))
-    console.log(`✅ Google Sheet data saved to ${filePath}`)
+    console.log(`Sheet data saved to ${filePath}`)
   } catch (error) {
-    console.error(
-      '❌ Error fetching Google Spreadsheet:',
+    console.log(
+      'Error fetching sheet:',
       error.response?.status,
       error.response?.statusText
     )
-    console.error('🔍 Full error:', error)
+    console.error('Full error:', error)
   }
 }
 
