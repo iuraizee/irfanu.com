@@ -1,6 +1,3 @@
 User-agent: *
-Disallow: /images/
-Disallow: /assets/
-
-User-agent: *
-Allow: /
+Disallow: /
+Allow: /$
