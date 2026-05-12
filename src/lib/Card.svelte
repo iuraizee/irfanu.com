@@ -14,6 +14,7 @@
       <img
         src={image}
         alt={headline}
+        loading="lazy"
         onload={() => (isLoaded = true)}
       />
     </div>
