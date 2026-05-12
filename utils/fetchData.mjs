@@ -1,9 +1,8 @@
 import fs from 'fs'
-import path from 'path'
+import path, { dirname } from 'path'
 import archieml from 'archieml'
 import chalk from 'chalk'
 import { fileURLToPath } from 'url'
-import { dirname } from 'path'
 
 // google doc ids
 const GOOGLE_DOC_ID = '1EaoXpjWxg-88aYZG2AEmxujMvRB4LSEzu8DfywSluUs'
@@ -85,8 +84,7 @@ const fetchGoogleSheet = async () => {
 }
 
 const fetchAllData = async () => {
-  await fetchGoogleDoc()
-  await fetchGoogleSheet()
+  await Promise.all([fetchGoogleDoc(), fetchGoogleSheet()])
 }
 
 fetchAllData()

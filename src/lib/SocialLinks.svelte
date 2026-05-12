@@ -8,7 +8,7 @@
 
 <div class="links">
   {#each links as link}
-    <a class="link-item" href={link.href} target="_blank" rel="noopener">
+    <a class="link-item" href={link.href} target="_blank" rel="noopener noreferrer">
       {link.title}
     </a>
   {/each}
