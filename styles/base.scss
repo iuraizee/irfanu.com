@@ -1,16 +1,16 @@
 // Resets
-@import 'reset/layout';
+@use 'reset/layout' as reset;
 
 // Base dependencies
-@import 'base/root';
-@import 'base/fonts';
+@use 'base/root';
+@use 'base/fonts';
 
 // Base
-@import 'base/layout';
-@import 'base/lists';
-@import 'base/theme';
-@import 'base/typography';
+@use 'base/layout';
+@use 'base/lists';
+@use 'base/theme';
+@use 'base/typography';
 
 // Custom
-@import 'custom/cards';
-@import 'custom/social-links';
+@use 'custom/cards';
+@use 'custom/social-links';

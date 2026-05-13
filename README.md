@@ -1,18 +1,42 @@
-# Portfolio
+# irfanu.com
 
-This is my personal [portfolio website](https://irfanu.com/) built using React and Next.js with content managed via Google Docs (using ArchieML) and Google Sheets. This site is deployed using Cloudflare Pages.
+This is my personal [portfolio website](https://irfanu.com). It's built using SvelteKit with content managed via Google Docs and Google Sheets.
 
-## Prerequisites
+## Stack
 
-* Node.js (>= 18)
-* npm
+- **SvelteKit**
+- **Svelte 5**
+- **SCSS**
+- **ArchieML**
+- **Cloudflare Pages**
 
-## Running locally
+## Content pipeline
 
-`npm run dev`
+`utils/fetchData.mjs` pulls from Google docs sources. `npm run dev` fetches it automatically.
 
-The site will be available locally at http://localhost:3000.
+## Local development
+
+```bash
+npm install
+npm run dev     # fetches content, then starts dev server at localhost:5173
+```
+
+Other commands:
+
+```bash
+npm run download   # fetch content from docs
+npm run build      # build
+npm run preview    # serve the build directory locally
+```
 
 ## Deployment
 
-Updates to the `main` branch automatically trigger Cloudfare Pages to rebuild and deploy. Easy peasy. 
+Pushing to `main` triggers a Cloudflare Pages build:
+
+```
+npm run download && npm run build
+```
+
+## Prerequisites
+
+Node.js ≥ 18

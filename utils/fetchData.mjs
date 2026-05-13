@@ -1,10 +1,8 @@
 import fs from 'fs'
-import path from 'path'
-import axios from 'axios'
+import path, { dirname } from 'path'
 import archieml from 'archieml'
 import chalk from 'chalk'
 import { fileURLToPath } from 'url'
-import { dirname } from 'path'
 
 // google doc ids
 const GOOGLE_DOC_ID = '1EaoXpjWxg-88aYZG2AEmxujMvRB4LSEzu8DfywSluUs'
@@ -28,20 +26,16 @@ const fetchGoogleDoc = async () => {
 
   try {
     console.log(chalk.cyan('Fetching doc...'))
-    const response = await axios.get(url, { responseType: 'text' })
-    const parsedData = archieml.load(response.data)
+    const response = await fetch(url)
+    if (!response.ok)
+      throw new Error(`${response.status} ${response.statusText}`)
+    const text = await response.text()
+    const parsedData = archieml.load(text)
 
     fs.writeFileSync(filePath, JSON.stringify(parsedData, null, 2))
     console.log(chalk.green(`Doc data saved to ${filePath}`))
   } catch (error) {
-    console.log(
-      chalk.red(
-        'Error fetching doc:',
-        error.response?.status,
-        error.response?.statusText
-      )
-    )
-    console.error(chalk.red('Full error:', error))
+    console.error(chalk.red('Error fetching doc:', error.message))
   }
 }
 
@@ -52,10 +46,13 @@ const fetchGoogleSheet = async () => {
 
   try {
     console.log(chalk.cyan('Fetching sheet...'))
-    const response = await axios.get(url, { responseType: 'text' })
+    const response = await fetch(url)
+    if (!response.ok)
+      throw new Error(`${response.status} ${response.statusText}`)
+    const text = await response.text()
 
     // extract json
-    const jsonStr = response.data.match(/\{.*\}/s)[0]
+    const jsonStr = text.match(/\{.*\}/s)[0]
     const jsonData = JSON.parse(jsonStr)
 
     // convert to structured json
@@ -82,20 +79,12 @@ const fetchGoogleSheet = async () => {
     fs.writeFileSync(filePath, JSON.stringify(rows, null, 2))
     console.log(chalk.green(`Sheet data saved to ${filePath}`))
   } catch (error) {
-    console.log(
-      chalk.red(
-        'Error fetching sheet:',
-        error.response?.status,
-        error.response?.statusText
-      )
-    )
-    console.error(chalk.red('Full error:', error))
+    console.error(chalk.red('Error fetching sheet:', error.message))
   }
 }
 
 const fetchAllData = async () => {
-  await fetchGoogleDoc()
-  await fetchGoogleSheet()
+  await Promise.all([fetchGoogleDoc(), fetchGoogleSheet()])
 }
 
 fetchAllData()
