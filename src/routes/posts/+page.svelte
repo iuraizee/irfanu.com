@@ -1,5 +1,14 @@
 <script>
   let { data } = $props()
+
+  function formatDate(date) {
+    return new Date(date).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    })
+  }
 </script>
 
 <svelte:head>
@@ -7,13 +16,17 @@
 </svelte:head>
 
 <main class="posts-index">
+  <header class="posts-header">
+    <h1>Blog</h1>
+    <p>Writing about my projects, data visualization, web development, and whatever else I find interesting.</p>
+  </header>
   <ul class="posts-list">
     {#each data.posts as post}
       <li class="posts-item">
         <a href="/posts/{post.slug}">
+          <time datetime={post.date}>{formatDate(post.date)}</time>
           <h2>{post.title}</h2>
           {#if post.deck}<p class="posts-deck">{post.deck}</p>{/if}
-          <time datetime={post.date}>{post.date}</time>
         </a>
       </li>
     {/each}
