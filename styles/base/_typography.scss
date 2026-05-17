@@ -38,7 +38,7 @@ header > p {
   @include relative-clamp-sizes(
     var(--font-size-medium),
     4vw,
-    var(--font-size-large),
+    var(--font-size-xlarge),
     8
   );
   font-family: var(--font-family-base);

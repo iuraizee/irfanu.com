@@ -18,7 +18,7 @@
 <main class="posts-index">
   <header class="posts-header">
     <h1>Blog</h1>
-    <p>Writing about my projects, data visualization, web development, and whatever else I find interesting.</p>
+    <p>Writing a few words about my projects and whatever else I find interesting.</p>
   </header>
   <ul class="posts-list">
     {#each data.posts as post}
