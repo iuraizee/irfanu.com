@@ -44,6 +44,26 @@
   }
 }
 
+.post-figure {
+  margin: var(--space-base) 0;
+
+  img {
+    width: 100%;
+    opacity: 0;
+    transition: opacity var(--transition-timing-base) ease-in-out;
+
+    &.loaded {
+      opacity: 1;
+    }
+  }
+
+  figcaption {
+    margin-top: var(--space-small);
+    font-size: var(--font-size-small);
+    color: var(--color-secondary);
+  }
+}
+
 .posts-index {
   max-width: var(--container-base);
   margin: 0 auto;
