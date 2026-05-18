@@ -30,6 +30,7 @@
     "eslint": "^9.28.0",
     "eslint-plugin-svelte": "^2.46.1",
     "globals": "^16.2.0",
+    "mdsvex": "^0.12.7",
     "svelte": "^5.33.4",
     "svelte-check": "^4.2.1",
     "vite": "^6.3.5"

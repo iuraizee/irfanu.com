@@ -15,6 +15,10 @@
 
 .card {
   overflow: hidden;
+
+  a {
+    text-decoration: none;
+  }
   border-radius: 4px;
   width: 100%;
   transition: var(--transition-timing-base) ease-in-out;
@@ -57,7 +61,11 @@
   }
 
   &-text {
-    transition: all var(--transition-timing-base);
+    transition: color var(--transition-timing-base);
+  }
+
+  a:hover &-text {
+    color: var(--color-accent);
   }
 }
 
