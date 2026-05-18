@@ -25,11 +25,11 @@ Months of research, analysis, and data collection from a mix of public and propr
 
 ## The challenge
 
-The project needed to plot a complex web of connections between hundreds of people and organizations without feeling visually overwhelming. I focused on: 
-Visual clarity: Highlighting the most connected nodes to guide users and make interactive elements immediately obvious 
-Ease of use: Implementing a Voronoi overlay around each node to create a larger hoverable and clickable target area 
-Responsive design: Building an experience that feels robust and intuitive across devices and screen sizes 
-Performance: Rendering the graph on Canvas rather than SVG to handle hundreds of nodes efficiently and ensuring D3 only emits tick events that are absolutely necessary
+The project needed to plot a complex web of connections between hundreds of people and organizations without feeling visually overwhelming. I focused on:
+- Visual clarity: Highlighting the most connected nodes to guide users and make interactive elements immediately obvious 
+- Ease of use: Implementing a Voronoi overlay around each node to create a larger hoverable and clickable target area 
+- Responsive design: Building an experience that feels robust and intuitive across devices and screen sizes 
+- Performance: Rendering the graph on Canvas rather than SVG to handle hundreds of nodes efficiently and ensuring D3 only emits tick events that are absolutely necessary
 
 ## What's next?
 
