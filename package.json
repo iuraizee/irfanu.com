@@ -38,6 +38,7 @@
     "archieml": "^0.5.0",
     "chalk": "^5.4.1",
     "lucide-svelte": "^0.477.0",
+    "mdsvex": "^0.12.7",
     "modern-normalize": "^3.0.1",
     "sass": "^1.85.1"
   }
