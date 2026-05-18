@@ -130,12 +130,13 @@
   h2 {
     font-size: var(--font-size-medium);
     line-height: var(--line-height-tight);
-    // margin-bottom: var(--space-x-small);
     transition: color var(--transition-timing-base);
+    padding-bottom: 0;
   }
 }
 
 .posts-deck {
   color: var(--color-secondary);
+  margin-top: var(--space-x-small);
   margin-bottom: var(--space-x-small);
 }
