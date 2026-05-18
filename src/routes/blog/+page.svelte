@@ -12,7 +12,7 @@
 </script>
 
 <svelte:head>
-  <title>Posts — Irfan Uraizee</title>
+  <title>Blog — Irfan Uraizee</title>
 </svelte:head>
 
 <main class="posts-index">
@@ -23,7 +23,7 @@
   <ul class="posts-list">
     {#each data.posts as post}
       <li class="posts-item">
-        <a href="/posts/{post.slug}">
+        <a href="/blog/{post.slug}">
           <time datetime={post.date}>{formatDate(post.date)}</time>
           <h2>{post.title}</h2>
           {#if post.deck}<p class="posts-deck">{post.deck}</p>{/if}
