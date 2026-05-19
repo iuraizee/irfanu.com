@@ -23,7 +23,7 @@
 
     <div class="card-grid">
       {#each projects as project}
-        <Card url={project.url} headline={project.headline} image={project.image} />
+        <Card url={project.url} headline={project.headline} image={project.image} blogUrl={project.blogUrl} />
       {/each}
     </div>
   </section>
