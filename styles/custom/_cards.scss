@@ -29,7 +29,8 @@
     width: 100%;
     aspect-ratio: 16/9;
 
-    img {
+    img,
+    video {
       position: absolute;
       inset: 0;
       width: 100%;
