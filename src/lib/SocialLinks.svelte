@@ -1,6 +1,6 @@
 <script>
   const links = [
-    { href: 'mailto:iuraizee@gmail.com?subject=Hi Irfan!', title: 'Email' },
+    { href: 'mailto:hello@irfanu.com?subject=Hi Irfan!', title: 'Email' },
     { href: 'https://github.com/iuraizee', title: 'Github' },
     { href: 'https://www.linkedin.com/in/irfanuraizee/', title: 'LinkedIn' },
   ]
