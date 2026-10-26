@@ -21,7 +21,6 @@
    * Apply a theme to the page without changing storage.
    * Missing or invalid values restore the system preference.
    * @param {string | null | undefined} value - Theme from the page or storage.
-   * @returns {void}
    */
   function applyPreference(value) {
     preference = value === 'light' || value === 'dark' ? value : 'system'
@@ -34,15 +33,14 @@
   }
 
   /**
-   * Apply the user's selection and save it when storage is available.
-   * @param {Theme} value - Explicit light or dark selection.
-   * @returns {void}
+   * Switch to the opposite theme and save it when storage is available.
    */
-  function selectPreference(value) {
-    applyPreference(value)
+  function toggleTheme() {
+    const nextTheme = isDark ? 'light' : 'dark'
+    applyPreference(nextTheme)
 
     try {
-      localStorage.setItem('theme', preference)
+      localStorage.setItem('theme', nextTheme)
     } catch {
       // Selected theme still applies when storage is unavailable.
     }
@@ -57,7 +55,6 @@
     /**
      * Update the system fallback so the toggle label reflects the current theme.
      * @param {MediaQueryListEvent} event - System color preference change.
-     * @returns {void}
      */
     function updateSystemPreference(event) {
       systemIsDark = event.matches
@@ -67,7 +64,6 @@
      * Apply theme changes from other tabs, including removed or cleared storage.
      * Ignore unrelated keys and session storage events.
      * @param {StorageEvent} event - Storage change from another document.
-     * @returns {void}
      */
     function syncPreference(event) {
       if (event.key !== 'theme' && event.key !== null) return
@@ -78,7 +74,6 @@
         return
       }
 
-      // A removed key or cleared storage restores the system preference.
       applyPreference(event.newValue)
     }
 
@@ -97,7 +92,7 @@
   type="button"
   aria-label={toggleLabel}
   title={toggleLabel}
-  onclick={() => selectPreference(isDark ? 'light' : 'dark')}
+  onclick={toggleTheme}
 >
   <Moon
     size={20}
