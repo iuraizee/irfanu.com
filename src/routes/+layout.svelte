@@ -1,6 +1,6 @@
 <script>
   import 'modern-normalize/modern-normalize.css'
-  import '../../styles/base.scss'
+  import '$styles/base.scss'
   import ThemeToggle from '$lib/ThemeToggle.svelte'
 
   let { children } = $props()

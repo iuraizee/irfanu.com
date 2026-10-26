@@ -17,6 +17,9 @@ export default {
     }),
   ],
   kit: {
+    alias: {
+      $styles: './styles',
+    },
     adapter: adapter({
       pages: 'build',
       assets: 'build',
