@@ -35,13 +35,21 @@
   --transition-timing-base: 0.2s;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
+@mixin dark-colors {
+  color-scheme: dark;
 
-    --color-background: #1e1e1e;
-    --color-primary: #f0edee;
-    --color-secondary: #b3b3b3;
-    --color-accent: #bb86fc;
+  --color-background: #1e1e1e;
+  --color-primary: #f0edee;
+  --color-secondary: #b3b3b3;
+  --color-accent: #bb86fc;
+}
+
+:root[data-theme='dark'] {
+  @include dark-colors;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    @include dark-colors;
   }
 }

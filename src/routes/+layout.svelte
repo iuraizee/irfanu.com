@@ -1,6 +1,7 @@
 <script>
   import 'modern-normalize/modern-normalize.css'
   import '../../styles/base.scss'
+  import ThemeToggle from '$lib/ThemeToggle.svelte'
 
   let { children } = $props()
 </script>
@@ -29,4 +30,5 @@
   <meta name="twitter:image" content="https://irfanu.com/og.jpg" />
 </svelte:head>
 
+<ThemeToggle />
 {@render children()}
