@@ -3,12 +3,13 @@
   top: 1rem;
   right: 1rem;
   z-index: 10;
-  display: grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 2.75rem;
   height: 2.75rem;
   padding: 0;
-  border: var(--border-thickness-base) solid var(--color-secondary);
+  border: var(--border-thickness-base) solid var(--color-border);
   border-radius: 50%;
   background-color: var(--color-background);
   color: var(--color-primary);
