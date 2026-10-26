@@ -2,6 +2,10 @@
   import { onMount } from 'svelte'
   import { Moon, Sun } from 'lucide-svelte'
 
+  /** @typedef {'light' | 'dark'} Theme */
+  /** @typedef {Theme | 'system'} ThemePreference */
+
+  /** @type {ThemePreference} */
   let preference = $state('system')
   let systemIsDark = $state(false)
   let ready = $state(false)
@@ -13,6 +17,12 @@
     ready ? `Switch to ${isDark ? 'light' : 'dark'} mode` : 'Toggle color theme'
   )
 
+  /**
+   * Apply a theme to the page without changing storage.
+   * Missing or invalid values restore the system preference.
+   * @param {string | null | undefined} value - Theme from the page or storage.
+   * @returns {void}
+   */
   function applyPreference(value) {
     preference = value === 'light' || value === 'dark' ? value : 'system'
 
@@ -23,6 +33,11 @@
     }
   }
 
+  /**
+   * Apply the user's selection and save it when storage is available.
+   * @param {Theme} value - Explicit light or dark selection.
+   * @returns {void}
+   */
   function selectPreference(value) {
     applyPreference(value)
 
@@ -39,10 +54,21 @@
     applyPreference(document.documentElement.dataset.theme)
     ready = true
 
+    /**
+     * Update the system fallback so the toggle label reflects the current theme.
+     * @param {MediaQueryListEvent} event - System color preference change.
+     * @returns {void}
+     */
     function updateSystemPreference(event) {
       systemIsDark = event.matches
     }
 
+    /**
+     * Apply theme changes from other tabs, including removed or cleared storage.
+     * Ignore unrelated keys and session storage events.
+     * @param {StorageEvent} event - Storage change from another document.
+     * @returns {void}
+     */
     function syncPreference(event) {
       if (event.key !== 'theme' && event.key !== null) return
 
