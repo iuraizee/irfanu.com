@@ -10,4 +10,5 @@ main {
   @include container;
 
   grid-row-gap: var(--space-x-large);
+  padding-top: calc(var(--space-medium) + 2rem);
 }

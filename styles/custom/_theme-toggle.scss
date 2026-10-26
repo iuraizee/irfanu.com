@@ -1,0 +1,54 @@
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: var(--border-thickness-base) solid var(--color-border);
+  border-radius: 50%;
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  cursor: pointer;
+  transition:
+    border-color var(--transition-timing-base) ease-in-out,
+    color var(--transition-timing-base) ease-in-out;
+
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  &__light {
+    display: none;
+  }
+}
+
+@mixin dark-icon {
+  .theme-toggle__dark {
+    display: none;
+  }
+
+  .theme-toggle__light {
+    display: block;
+  }
+}
+
+:root[data-theme='dark'] {
+  @include dark-icon;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    @include dark-icon;
+  }
+}

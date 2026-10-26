@@ -1,8 +1,11 @@
 :root {
-  --color-background: #1e1e1e;
-  --color-primary: #f0edee;
-  --color-secondary: #b3b3b3;
-  --color-accent: #bb86fc;
+  color-scheme: light;
+
+  --color-background: #faf9f7;
+  --color-primary: #242124;
+  --color-secondary: #57535a;
+  --color-border: #8a858d;
+  --color-accent: #6b2a9f;
 
   --font-family-base: 'Source Serif 4', serif;
   --font-family-sans: 'Source Sans 3', sans-serif;
@@ -31,4 +34,24 @@
   --container-narrow: 42rem;
 
   --transition-timing-base: 0.2s;
+}
+
+@mixin dark-colors {
+  color-scheme: dark;
+
+  --color-background: #1e1e1e;
+  --color-primary: #f0edee;
+  --color-secondary: #b3b3b3;
+  --color-border: #726c78;
+  --color-accent: #bb86fc;
+}
+
+:root[data-theme='dark'] {
+  @include dark-colors;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    @include dark-colors;
+  }
 }
